@@ -21,7 +21,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-  return arr.indexOf(value)
+  return arr.indexOf(value);
 }
 
 /**
@@ -36,13 +36,13 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  let num =1;
-  arr=[];
-  for (i=0; i<len; i++){
-      arr.push(num)
-      num+=2
+  let num = 1;
+  const arr = [];
+  for (let i = 0; i < len; i += 1) {
+    arr.push(num);
+    num += 2;
   }
-  return arr
+  return arr;
 }
 
 
@@ -59,12 +59,12 @@ function generateOdds(len) {
  *    [] => []
  */
 function doubleArray(arr) {
-  let newarr = [];
-  for (i=0; i<arr.length; i++) {
-      newarr.push(arr[i])
+  const newarr = [];
+  for (let i = 0; i < arr.length; i += 1) {
+    newarr.push(arr[i]);
   }
-  for (i=0; i<arr.length; i++) {
-      newarr.push(arr[i])
+  for (let i = 0; i < arr.length; i += 1) {
+    newarr.push(arr[i]);
   }
   return newarr;
 }
@@ -82,7 +82,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  let newarr = arr.filter(i => i > 0);
+  const newarr = arr.filter((i) => i > 0);
   return newarr;
 }
 
@@ -98,7 +98,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  const newarr = arr.filter(i => (typeof i === 'string'));
+  const newarr = arr.filter((i) => (typeof i === 'string'));
   return newarr;
 }
 
@@ -116,10 +116,10 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  const falsyarr = [false, null, 0, "", undefined, NaN]
-  let newarr = arr.filter(i => !falsyarr.includes(i))
+  const falsyarr = [false, null, 0, '', undefined, NaN];
+  const newarr = arr.filter((i) => !falsyarr.includes(i));
   return newarr;
- }
+}
 
 /**
  * Returns the array of uppercase strings from the specified array
@@ -133,7 +133,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  return arr.map(i => i.toUpperCase());
+  return arr.map((i) => i.toUpperCase());
 }
 
 
@@ -148,7 +148,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  return arr.map(i => i.length);
+  return arr.map((i) => i.length);
 }
 
 /**
@@ -163,8 +163,8 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 'x', 0  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-  arr.splice(index,0,item)
-  return arr
+  arr.splice(index, 0, item);
+  return arr;
 }
 
 /**
@@ -178,7 +178,7 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-  return arr.splice(0,n)
+  return arr.splice(0, n);
 }
 
 
@@ -193,7 +193,7 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-  return arr.splice(n)
+  return arr.splice(-n);
 }
 
 
@@ -217,8 +217,9 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  const df = arr.join('\n');
+  return df;
 }
 
 /**
@@ -232,8 +233,8 @@ function toCsvText(/* arr */) {
  *   [ 0, 1, 2, 3, 4, 5 ] => [ 0, 1, 4, 9, 16, 25 ]
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
-function toArrayOfSquares(/* arr */) {
-  throw new Error('Not implemented');
+function toArrayOfSquares(arr) {
+  return arr.map((i) => i * i);
 }
 
 

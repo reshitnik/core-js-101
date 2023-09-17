@@ -20,7 +20,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-  return width*height
+  return width * height;
 }
 
 
@@ -36,7 +36,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCircleCircumference(radius) {
-  return Math.PI*2*radius;
+  return Math.PI * 2 * radius;
 }
 
 /**
@@ -52,7 +52,8 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1*value2)/2;
+  const averge = (value1 + value2) / 2;
+  return averge;
 }
 
 /**
@@ -71,9 +72,9 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  let a = x1 - x2;
-  let b = y1 - y2;
-  return Math.sqrt(a*a + b*b)
+  const a = x1 - x2;
+  const b = y1 - y2;
+  return Math.sqrt(a * a + b * b);
 }
 
 /**
@@ -89,7 +90,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-  return -(b)/a;
+  return -(b) / a;
 }
 
 
@@ -112,9 +113,9 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  let a = Math.atan2(y1, x1);
-  let b = Math.atan2(y2, x2);
-  return Math.abs((b-a)*180/Math.PI)
+  const a = Math.atan2(y1, x1);
+  const b = Math.atan2(y2, x2);
+  return Math.abs(((b - a) * 180) / Math.PI);
 }
 
 
@@ -131,7 +132,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  return value%10
+  return value % 10;
 }
 
 
@@ -147,7 +148,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-  return parseInt(value)
+  return parseInt(value, 10);
 }
 
 /**
@@ -164,8 +165,8 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  let result = a*a + b*b + c*c;
-  return Math.sqrt(result)
+  const result = a * a + b * b + c * c;
+  return Math.sqrt(result);
 }
 
 
@@ -187,7 +188,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return Math.round(num/(10**pow))*10**pow 
+  return Math.round(num / (10 ** pow)) * 10 ** pow;
 }
 
 /**
@@ -209,18 +210,18 @@ function roundToPowerOfTen(num, pow) {
  */
 
 function isPrime(n) {
-  if (n<2)  {
-      return false;
-    } 
-    else if(n === 2)  {
-      return true;
-}else { for (i=2; i < n ; i++){
-  if (n %i == 0) {
-      return false;
+  if (n < 2) {
+    return false;
   }
-}
-return true
-}
+  if (n === 2) {
+    return true;
+  }
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -239,11 +240,10 @@ return true
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  let maybe = parseInt(value);
-  if (Number.isNaN(maybe)){
-      return def
-  } else {return maybe}
-  
+  const maybe = parseInt(value, 10);
+  if (Number.isNaN(maybe)) {
+    return def;
+  } return maybe;
 }
 
 module.exports = {
