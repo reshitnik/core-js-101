@@ -252,8 +252,10 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  const newarr = [];
+  arr.reduce(function ass(a, b, i) { return newarr[i] = a + b; }, 0);// eslint-disable-line no-return-assign, prefer-arrow-callback, max-len
+  return newarr;
 }
 
 /**
@@ -267,8 +269,8 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  return arr.filter((i, index) => index % 2 !== 0);
 }
 
 
@@ -286,10 +288,17 @@ function getSecondItems(/* arr */) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
-}
 
+function propagateItemsByPositionIndex(arr) {
+  const newarr = [];
+  for (let i = 0; i < arr.length; i++) { // eslint-disable-line no-plusplus
+    newarr.push(arr[i]);
+    for (let j = 0; j < i; j++) { // eslint-disable-line no-plusplus
+      newarr.push(arr[i]);
+    }
+  }
+  return newarr;
+}
 
 /**
  * Returns the 3 largest numbers from the specified array
@@ -304,8 +313,10 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  let newarr = [];
+  newarr = arr.sort((a, b) => b - a);
+  return newarr.slice(0, 3);
 }
 
 
@@ -322,8 +333,14 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i = i + 1) { // eslint-disable-line operator-assignment
+    if ( (typeof arr[i] === 'number') & arr[i] > 0){ // eslint-disable-line space-in-parens, no-bitwise, space-before-blocks
+      count = count + 1; // eslint-disable-line operator-assignment
+    }
+  }
+  return count;
 }
 
 /**
@@ -339,8 +356,9 @@ function getPositivesCount(/* arr */) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const myarr = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr.sort((a, b) => myarr.indexOf(a) - myarr.indexOf(b));
 }
 
 /**
