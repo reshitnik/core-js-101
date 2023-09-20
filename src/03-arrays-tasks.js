@@ -373,8 +373,8 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  return arr.reduce((accum, curentval) => accum + curentval);// eslint-disable-line semi
 }
 
 /**
@@ -389,8 +389,8 @@ function getItemsSum(/* arr */) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  return arr.filter(v => !Boolean(v)).length; // eslint-disable-line arrow-parens, no-extra-boolean-cast, max-len
 }
 
 /**
@@ -407,9 +407,16 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i = i + 1) { // eslint-disable-line operator-assignment
+    if (arr[i] === item) {
+      count = count + 1; // eslint-disable-line operator-assignment
+      } // eslint-disable-line operator-assignment, indent
+    } // eslint-disable-line operator-assignment, indent
+  return count;
 }
+
 
 /**
  * Concatenates all elements from specified array into single string with ',' delimiter
@@ -422,10 +429,9 @@ function findAllOccurrences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  return arr.join();
 }
-
 
 /**
  * Sorts the specified array by country name first and city name
@@ -453,8 +459,8 @@ function toStringList(/* arr */) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  return arr.sort((a, b) => a.city.localeCompare(b.city)).sort((a, b) => a.country.localeCompare(b.country)); // eslint-disable-line max-len
 }
 
 /**
@@ -475,9 +481,11 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+
+function getIdentityMatrix(n) {
+  return [...Array(n)].map((e, i, a) => a.map(e => +!i--)); // eslint-disable-line no-shadow, no-unused-vars, no-plusplus, arrow-parens, no-param-reassign, max-len
 }
+
 
 /**
  * Creates an array of integers from the specified start to end (inclusive)
@@ -492,8 +500,12 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arr = [];
+  for (let i = start; i <= end; i = i + 1 ) { // eslint-disable-line operator-assignment, space-in-parens, max-len
+    arr.push(i);
+  }
+  return arr;
 }
 
 /**
@@ -507,8 +519,8 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return [...new Set(arr)];
 }
 
 /**
@@ -599,8 +611,20 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const lengthArr = arr.length;
+  let head = [];
+  let tail = [];
+  if (lengthArr % 2 === 0) {
+    head = arr.splice(0, lengthArr / 2);
+    tail = arr.splice(0, lengthArr);
+    return [...tail, ...head];
+  } else
+  { // eslint-disable-line no-else-return, brace-style
+    head = arr.splice(0, Math.floor(lengthArr / 2));
+    tail = arr.splice(1, lengthArr);
+    return [...tail, ...arr, ...head];
+  }
 }
 
 
